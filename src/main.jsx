@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
@@ -6,12 +6,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Dashboard from './Layout/Dashboard';
-import AuthContext from './Provider/AuthContext';
 import SignUp from './Pages/SignUp/SignUp';
 import Login from './Pages/Login/Login';
 import Main from './Layout/Main';
 import PrivateRoute from './Route/PrivateRoute';
 import DonorProfile from './Pages/Profile/DonorProfile';
+import CreateDonationRequest from './Pages/CreateDonationRequest/CreateDonationRequest';
+import MyDonationRequest from './Pages/MyDonationRequest/MyDonationRequest';
+import AuthContext from './Provider/AuthContext';
+import DashboardHome from './Pages/DashboardHome/DashboardHome';
 
 
 const router = createBrowserRouter([
@@ -26,15 +29,19 @@ const router = createBrowserRouter([
   { path: 'login', element: <Login /> },
   {
     path: 'dashboard',
-    element: <PrivateRoute> <Dashboard /></PrivateRoute>,
+    element: <PrivateRoute> {<Dashboard />}</PrivateRoute>,
     children: [
       {
+        path: '/dashboard',
+        element: <DashboardHome></DashboardHome>
+      },
+      {
         path: 'my-donation-request',
-        element: <p>jdfjh</p>
+        element: <MyDonationRequest />
       },
       {
         path: 'create-donation-request',
-        element: <p>jdfjh</p>,
+        element: <CreateDonationRequest />,
       },
       {
         path: 'profile',
