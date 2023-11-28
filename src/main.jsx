@@ -10,6 +10,8 @@ import AuthContext from './Provider/AuthContext';
 import SignUp from './Pages/SignUp/SignUp';
 import Login from './Pages/Login/Login';
 import Main from './Layout/Main';
+import PrivateRoute from './Route/PrivateRoute';
+import DonorProfile from './Pages/Profile/DonorProfile';
 
 
 const router = createBrowserRouter([
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
   { path: 'login', element: <Login /> },
   {
     path: 'dashboard',
-    element: <Dashboard />,
+    element: <PrivateRoute> <Dashboard /></PrivateRoute>,
     children: [
       {
         path: 'my-donation-request',
@@ -33,7 +35,11 @@ const router = createBrowserRouter([
       {
         path: 'create-donation-request',
         element: <p>jdfjh</p>,
-      }
+      },
+      {
+        path: 'profile',
+        element: <DonorProfile />,
+      },
     ]
   }
 ]);

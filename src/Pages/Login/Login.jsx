@@ -32,19 +32,26 @@ const Login = () => {
         loggedinUser(email, password)
             .then((user) => {
                 const userLogged = {
-                    email: user.email,
+                    email: email,
                     name: '',
+                    image: '',
                     role: 'donor',
                     BloodGroup: '',
                     district: '',
                     upazila: '',
+                    status: 'active',
 
                 }
-                console.log(userLogged);
+                axios.post('http://localhost:7000/users', userLogged)
+                    .then(res => {
+                        console.log(res.data);
+                    })
+
                 toast.success('Successfully Login!!');
+                navigate('/')
             })
             .then((error) => {
-                console.log(error.code);
+                toast.success('not login');
             })
     }
 
