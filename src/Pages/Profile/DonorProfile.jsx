@@ -11,7 +11,7 @@ const DonorProfile = () => {
     console.log(userCollection);
     const userEmail = user?.email;
     useEffect(() => {
-        axios.get(`http://localhost:7000/user/${userEmail}`)
+        axios.get(`https://blood-donation-server-eight.vercel.app/user/${userEmail}`)
             .then(res => {
                 setUserCollection(res?.data);
             })

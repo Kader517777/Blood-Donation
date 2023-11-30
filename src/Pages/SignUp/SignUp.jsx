@@ -45,7 +45,10 @@ const SignUp = () => {
                     status: 'active',
 
                 }
-                console.log(userLogged);
+                axios.post('https://blood-donation-server-eight.vercel.app/users', userLogged)
+                    .then(res => {
+                        console.log(res.data);
+                    })
                 toast.success('Successfully Login!!');
                 e.target.reset();
                 navigate('/')

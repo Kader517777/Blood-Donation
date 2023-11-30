@@ -42,7 +42,7 @@ const Login = () => {
                     status: 'active',
 
                 }
-                axios.post('http://localhost:7000/users', userLogged)
+                axios.post('https://blood-donation-server-eight.vercel.app/users', userLogged)
                     .then(res => {
                         console.log(res.data);
                     })
@@ -69,7 +69,7 @@ const Login = () => {
                     status: 'active',
 
                 }
-                axios.post('http://localhost:7000/users', userLogged)
+                axios.post('https://blood-donation-server-eight.vercel.app/users', userLogged)
                     .then(res => {
                         console.log(res.data);
                     })

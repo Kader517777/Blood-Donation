@@ -1,13 +1,25 @@
 import axios from "axios";
+import { useContext } from "react";
 import toast from "react-hot-toast";
+import { userContext } from "../../Provider/AuthContext";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const CreateDonationRequest = () => {
+    const { user } = useContext(userContext);
+    const [userCollection, setUserCollection] = useState({})
+    useEffect(() => {
+        axios.get(`https://blood-donation-server-eight.vercel.app/user/${user?.email}`)
+            .then(res => {
+                setUserCollection(res?.data);
+            })
+    }, [user?.email])
 
     const handleRegitration = (e) => {
         e.preventDefault();
         console.log(e.target.rName);
-        const rName = e.target.rName.value;
-        const email = e.target.email.value;
+        const rName = userCollection?.name;
+        const email = userCollection?.email;
         const recipientName = e.target.recipientName.value;
         const district = e.target.district.value;
         const upazila = e.target.upazila.value;
@@ -36,7 +48,7 @@ const CreateDonationRequest = () => {
 
         }
 
-        axios.post('http://localhost:7000/createDonationRequest', createDonationRequest)
+        axios.post('https://blood-donation-server-eight.vercel.app/createDonationRequest', createDonationRequest)
             .then(res => {
                 console.log(res.data.acknowledged);
                 if (res.data.acknowledged) {
@@ -49,18 +61,18 @@ const CreateDonationRequest = () => {
     return (
         <form onSubmit={handleRegitration} className="card-body flex-shrink-0">
 
-            <h1 className="text-5xl font-bold">Registration now!</h1>
+            <h1 className="text-5xl font-bold">Create Donation Request!</h1>
             <div className="form-control">
                 <label className="label">
                     <span className="label-text">Requester Name</span>
                 </label>
-                <input type="text" name="rName" placeholder="Requester Name" className="input input-bordered" required />
+                <p className="text-2xl text-[#ff00aa] font-bold">{userCollection?.name}</p>
             </div>
             <div className="form-control">
                 <label className="label">
                     <span className="label-text">Email</span>
                 </label>
-                <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                <p className=" text-2xl text-[#ff00aa] font-bold">{userCollection?.email}</p>
             </div>
             <div className="form-control">
                 <label className="label">

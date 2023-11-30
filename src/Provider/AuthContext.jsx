@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from "firebase/auth";
 import auth from "../Hooks/authentication.config";
+import axios from "axios";
 
 
 
@@ -10,6 +11,7 @@ const AuthContext = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loader, setLoader] = useState(true);
+    const [userCollection, setUserCollection] = useState({})
 
     const createEmailPasswordUser = (email, password) => {
         setLoader(true);
@@ -35,7 +37,10 @@ const AuthContext = ({ children }) => {
                 // https://firebase.google.com/docs/reference/js/auth.user
 
 
-
+                axios.get(`https://blood-donation-server-eight.vercel.app/user/${user?.email}`)
+                    .then(res => {
+                        setUserCollection(res?.data);
+                    })
 
                 setUser(user);
                 setLoader(false);
@@ -58,6 +63,9 @@ const AuthContext = ({ children }) => {
         });
     }
 
+    const currenUserCollection = () => {
+
+    }
 
     const authInfo = {
         user,
@@ -66,6 +74,7 @@ const AuthContext = ({ children }) => {
         createGoogleUser,
         loggedinUser,
         signUp,
+        userCollection,
     }
 
     return (

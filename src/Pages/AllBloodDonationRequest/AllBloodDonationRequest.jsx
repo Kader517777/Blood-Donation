@@ -1,23 +1,20 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { userContext } from "../../Provider/AuthContext";
+import { useEffect, useState } from "react";
 import TableRow from "../../Component/TableRow";
 
-const MyDonationRequest = () => {
-    const { user } = useContext(userContext);
+const AllBloodDonationRequest = () => {
 
-    const [requestDonation, setRequestDonation] = useState();
+    const [allRequest, setAllRequest] = useState([])
     useEffect(() => {
-        axios.get(`https://blood-donation-server-eight.vercel.app/requestDonation/${user?.email}`)
+        axios.get('https://blood-donation-server-eight.vercel.app/requestDonation')
             .then(res => {
-                setRequestDonation(res?.data);
+                setAllRequest(res?.data)
             })
-    }, [user?.email])
-
+    }, [])
     return (
-        <div className="p-8">
-            <h1 className="text-2xl font-bold flex justify-center my-5">My Donation Request</h1>
-            <div className="overflow-x-auto">
+        <div>
+            <div className="overflow-x-auto p-4 pt-9">
+                <h1 className=" flex justify-center text-3xl font-bold">All blood donation request</h1>
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -36,7 +33,7 @@ const MyDonationRequest = () => {
                     </thead>
                     <tbody>
                         {/* row 1 */}
-                        {requestDonation?.map((item, index) => <TableRow key={index} index={index} item={item} />)}
+                        {allRequest?.map((item, index) => <TableRow key={index} index={index} item={item} />)}
 
                     </tbody>
                 </table>
@@ -45,4 +42,4 @@ const MyDonationRequest = () => {
     );
 };
 
-export default MyDonationRequest;
+export default AllBloodDonationRequest;

@@ -1,19 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TableRow = ({ item, index }) => {
     return (
         <tr className="bg-base-200">
             <th>{index + 1}</th>
-            <td>{item?.recipientName}</td>
+            <td>{item?.rName}</td>
             <td>{item?.upazila}, {item?.district}</td>
             <td>{item?.donationDate}</td>
             <td>{item?.donationTime}</td>
-            <td>{item?.donationStatus}</td>
-            <td>{item?.name} {item?.email}</td>
-            <td><button className='btn btn-info'>Edit</button></td>
-            <td><button className='btn btn-warning'>Delete</button></td>
-            <td><button className='btn btn-primary'>View</button></td>
+            <td><Link to={'/blood-donation-details'}><button className='btn btn-primary'>View</button></Link></td>
 
         </tr>
     );
