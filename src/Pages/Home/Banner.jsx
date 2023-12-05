@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="hero bg-base-200 mt-5">
+        <div className="hero bg-gradient-to-r from-[#002050] to-[#00E2EC] mt-5">
             <div className="hero-content h-[500px] text-center">
-                <div className="max-w-md">
-                    <Link to={'signup'}> <button className=" btn btn-primary bg-[orange] text-[#fe3f3f] text-3xl font-bold px-7">Join as a donor</button></Link>
-                    <Link to={'donor-search'}><button className=" btn btn-primary bg-[orange] text-[#fe3f3f] text-3xl font-bold px-7 mt-5">Search Donors</button></Link>
+                <div className="max-w-[50%]">
+                    <Link to={'signup'}> <button className="btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-[#ffffff] text-3xl font-bold px-7 w-[300px]">Join as a donor</button></Link>
+                    <Link to={'donor-search'}><button className=" btn bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-[#ffffff] text-3xl font-bold px-7 w-[300px] mt-2">Search Donors</button></Link>
+                </div>
+                <div className=" flex-1">
+                    aswdsaf
                 </div>
             </div>
         </div>

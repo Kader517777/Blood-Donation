@@ -30,7 +30,7 @@ const Navber = () => {
                         <Link to={'/'} >
                             <img className="h-12 w-12" src="https://i.ibb.co/N97Ljq3/b110a1631ac9ae054007f19bd98295c0.png" alt="" />
                         </Link>
-                        Blood Donation
+                        <span className="font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500"> Blood Donation</span>
                     </p>
                 </div>
                 <div className="navbar-end hidden lg:flex items-center">
@@ -38,7 +38,9 @@ const Navber = () => {
                         <li><NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending text-2xl font-bold" : isActive ? "active text-2xl font-bold" : " text-2xl font-bold"
+                                isPending ? "pending text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                    : isActive ? "active text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                        : " text-2xl font-bold hover:text-white bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500"
                             }
                         >
                             Home
@@ -46,7 +48,9 @@ const Navber = () => {
                         <li><NavLink
                             to="/donation-requests"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending text-2xl font-bold" : isActive ? "active text-2xl font-bold" : " text-2xl font-bold"
+                                isPending ? "pending text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                    : isActive ? "active text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                        : " text-2xl font-bold hover:text-white bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500"
                             }
                         >
                             Donation Requests
@@ -54,13 +58,15 @@ const Navber = () => {
                         <li><NavLink
                             to="/blog"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending text-2xl font-bold" : isActive ? "active text-2xl font-bold" : " text-2xl font-bold"
+                                isPending ? "pending text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                    : isActive ? "active text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500"
+                                        : " text-2xl font-bold hover:text-white bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500"
                             }
                         >
                             Blog
                         </NavLink></li>
                         <li>
-                            {!user ? <Link className="text-3xl font-bold mr-0 md:mr-6" to='login'>Login</Link> :
+                            {!user ? <Link className="text-3xl font-bold mr-0 md:mr-6 " to='login'>Login</Link> :
                                 <div className="dropdown dropdown-end">
                                     <div tabIndex={0} role="button" className="">{photoURL ? <div className="avatar mx-0 md:mx-3">
                                         <div className="w-12 rounded-full">
