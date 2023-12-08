@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TableRow from "./TableRow";
+import { Helmet } from "react-helmet";
 
 const DonationRequest = () => {
     const [allRequest, setAllRequest] = useState([])
@@ -12,8 +13,22 @@ const DonationRequest = () => {
                 setAllRequest(filter)
             })
     }, [])
+
+    const link = document.querySelector('link[rel="icon"]');
+
+    if (link) {
+        link.setAttribute('href', 'https://i.ibb.co/gjwxKyy/blood-donation-symbol-with-hand-and-blood-bag-free-vector-removebg-preview.png');
+    } else {
+        link.setAttribute('href', 'favicon.ico');
+    }
+
     return (
         <div className="max-w-[1224px] mx-auto p-8">
+            <Helmet>
+                <title>Blood Donation | Donation Request</title>
+                <link rel="canonical" href="https://i.ibb.co/gjwxKyy/blood-donation-symbol-with-hand-and-blood-bag-free-vector-removebg-preview.png" />
+                <img src="https://i.ibb.co/gjwxKyy/blood-donation-symbol-with-hand-and-blood-bag-free-vector-removebg-preview.png" alt="" />
+            </Helmet>
             <h1 className="text-3xl font-bold flex justify-center mb-5">Blood Donation Requests</h1>
             <div className="overflow-x-auto">
                 <table className="table">

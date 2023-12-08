@@ -1,3 +1,4 @@
+import Button from "../../Component/Shared/Button";
 
 const ContuctUs = () => {
     return (
@@ -19,7 +20,7 @@ const ContuctUs = () => {
 
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn  btn-primary bg-[orange] text-[#fe3f3f] text-3xl font-bold px-7">Contuct us</button>
+                        <Button fontText='Contuct us' />
                     </div>
                     <div className="text-3xl font-bold">
                         Emergency contact: 01625876074

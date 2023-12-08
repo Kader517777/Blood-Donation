@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center p-10 bg-primary text-primary-content">
+        <footer className="footer footer-center p-10 bg-gradient-to-r from-[#002050] to-[#00E2EC] text-primary-content">
             <aside>
                 <Link to={'/'} >
                     <img className="h-12 w-12" src="https://i.ibb.co/N97Ljq3/b110a1631ac9ae054007f19bd98295c0.png" alt="" />
                 </Link>
                 <p className="font-bold">
-                    Blood Donation.
+                    <span className="font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-pink-500 to-yellow-500"> Blood Donation</span>
                 </p>
                 <p>Copyright © 2023 - All right reserved</p>
             </aside>
